@@ -17,7 +17,7 @@ addTaskBtn.addEventListener("click", function() {
     const clearTaskBtn = document.createElement("button")
     clearTaskBtn.innerHTML="X"
 
-    clearTaskBtn.classList.add("clear-btn")
+    // clearTaskBtn.classList.add("clear-btn")
 
     taskItem.appendChild(clearTaskBtn)
 
@@ -34,3 +34,7 @@ addTaskBtn.addEventListener("click", function() {
   }
 
 });
+
+document.getElementById("clearAll").addEventListener("click", ()=>{
+    taskList.remove()
+})
