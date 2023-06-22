@@ -1,5 +1,7 @@
 // const choices = ["rock", "paper", "scissor"]
 var firstPersonScore =0
+var secondPersonScore =0
+var winner =""
 
 var buttonChoices = document.querySelectorAll("button")
 
@@ -14,28 +16,62 @@ function generatedChoice(){
        userChoice = buttonChoices[i].id 
        computerChoice = generatedChoice()
        
+
+    //    comparing choices
      if(computerChoice ==="rock" && userChoice ==="scissor" ||
                 computerChoice ==="scissor" && userChoice==="paper"||
                 computerChoice ==="paper" && userChoice ==="rock"
                 ){
-                    firstPersonScore +=5
-                    result ="win"
+
+                    // scores for different persons
+
+                    if(i%2==0){
+                        firstPersonScore +=5
+                        result ="win"
+                    }
+                    else{
+                        secondPersonScore +=5
+                        result ="win"
+                    }
                     
                 }
      else{
-        firstPersonScore +=0
-        result ="lose"
+                if(i%2==0){
+                    firstPersonScore +=0
+                    result ="lose"
+                }
+                else{
+                    secondPersonScore +=0
+                    result ="lose" 
+        }
+
+        if(firstPersonScore > secondPersonScore &&firstPersonScore ===10){
+            winner ="first person wins"
+            firstPersonScore =0
+            secondPersonScore=0
+        }
+        else if( secondPersonScore> firstPersonScore && secondPersonScore ===10){
+            winner ="first person wins"
+            firstPersonScore =0
+            secondPersonScore=0
+        }
+
      }
-     console.log(firstPersonScore) 
+
+
+
+
+     console.log(winner) 
      document.getElementById("score").innerHTML = result
-     document.getElementById("totalscore").innerHTML = firstPersonScore
-        
+     document.getElementById("firstpersoncore").innerHTML = firstPersonScore 
+     document.getElementById("secondpersontotalscore").innerHTML = secondPersonScore
+     document.getElementById("winner").innerHTML = winner
     })
     
     }
 
 
 
-console.log(firstPersonScore)
+
 
 
