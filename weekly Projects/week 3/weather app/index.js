@@ -19,9 +19,12 @@ function displayData(data){
     const div =document.getElementById("display")
     if(data){
         const{temp_c, condition } = data.current
-        document.getElementById("display").innerHTML=`<h1>location: ${data.location.name} humidity:${temp_c} cloud: ${condition.text} <img src=${condition.icon} ></h1>`
-    }else{
-        document.getElementById("display").innerHTML="an error has occured"
+        document.getElementById("display").innerHTML=`<h1>location: ${data.location.name}</h1> <P>Temperature:${temp_c}</p> <p>cloud: ${condition.text} <img src=${condition.icon} ></p></h1>`
+    }else if(data.cod ==='400'){
+        document.getElementById("display").innerHTML=`<p>city not found</p>`
+    }
+    else{
+        document.getElementById("display").innerHTML=`an error has occured`
     }
     
 }
